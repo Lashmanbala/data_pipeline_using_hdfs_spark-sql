@@ -30,3 +30,9 @@ REFRESH TABLE nyse_stg;
 
 INSERT INTO TABLE nyse_delta PARTITION (trademonth)
 SELECT ns.*, substr(tradedate, 1, 6) AS trademonth FROM nyse_stg AS ns;
+
+SELECT count(*) FROM nyse_stg;
+
+SELECT trademonth, count(*) AS tradecount FROM nyse_delta
+GROUP BY trademonth
+ORDER BY trademonth;
