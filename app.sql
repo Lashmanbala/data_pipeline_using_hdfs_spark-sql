@@ -25,3 +25,8 @@ CREATE TABLE IF NOT EXISTS nyse_delta(
     volume BIGINT   
 ) USING DELTA
 PARTITIONED BY (trademonth INT);
+
+REFRESH TABLE nyse_stg;
+
+INSERT INTO TABLE nyse_delta PARTITION (trademonth)
+SELECT ns.*, substr(tradedate, 1, 6) AS trademonth FROM nyse_stg AS ns;
