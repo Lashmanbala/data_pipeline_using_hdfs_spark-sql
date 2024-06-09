@@ -14,3 +14,14 @@ CREATE EXTERNAL TABLE IF NOT EXISTS nyse_stg(
 OPTIONS (
     path='/user/${USERNAME}/nyse_data'
 );
+
+CREATE TABLE IF NOT EXISTS nyse_delta(
+    ticker VARCHAR(255),
+    tradedate INT,
+    openprice FLOAT,
+    highprice FLOAT,
+    lowprice FLOAT,
+    closeprice FLOAT,
+    volume BIGINT   
+) USING DELTA
+PARTITIONED BY (trademonth INT);
