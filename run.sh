@@ -1,0 +1,1 @@
+spark-sql --conf spark.sql.warehouse.dir=/user/spark/warehouse 
