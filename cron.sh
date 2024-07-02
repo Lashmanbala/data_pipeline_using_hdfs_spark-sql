@@ -1,0 +1,1 @@
+CRON_JOB="*/3 * * * * /home/hadoop/hive_app/wrapper.sh"   # runs every 3 minutes
