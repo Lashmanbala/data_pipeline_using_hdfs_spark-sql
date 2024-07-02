@@ -1,3 +1,5 @@
+hdfs dfs -rm -R -skipTrash /user/`whoami`/nyse_data/*
+
 spark-sql --conf spark.sql.warehouse.dir=/user/spark/warehouse \
   --packages io.delta:delta-spark_2.12:3.1.0 \
   --conf "spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension" \
